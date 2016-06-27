@@ -21,19 +21,20 @@ class Jury
     @members.each do |member|
       vote_for = finalists.sample
       votes[vote_for] += 1
-      puts "#{member.to_s.capitalize} votes for #{vote_for.name.capitalize}"
+      puts "#{member.to_s.capitalize.pink} votes for #{vote_for.name.capitalize.yellow}"
     end
     return votes
   end
 
   def report_votes(votes)
-    votes.each { |finalist, vote| puts "#{finalist} gets #{vote} votes" }
+    puts "Time to vote!"
+    votes.each { |finalist, vote| puts "#{finalist.to_s.capitalize.yellow} gets #{vote.to_s.light_blue} votes" }
   end
 
   def announce_winner(votes)
     votes.each do |finalist, vote|
       if vote >= 4 then
-        puts "#{finalist.name.capitalize} won!"
+        puts "Congratulations, #{finalist.name.upcase.red} won!"
         return finalist
       end
     end
