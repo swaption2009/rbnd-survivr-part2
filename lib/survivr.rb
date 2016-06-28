@@ -38,7 +38,9 @@ end
 def phase_two
   puts " *** Phase 2 starts ***".red
   PHASE_TWO_ELIMINATION_ROUNDS.times do
-    voted_off_contestant = @merge_tribe.tribal_council
+    immunity = @borneo.individual_immunity_challenge
+    puts "#{immunity.to_s.capitalize.green} wins immunity."
+    voted_off_contestant = @merge_tribe.tribal_council({immune: immunity})
     puts "#{voted_off_contestant.name.capitalize.pink} has been eliminated in tribal council."
   end
 end
@@ -46,7 +48,9 @@ end
 def phase_three
   puts " *** Phase 3 starts ***".red
   PHASE_THREE_ELIMINATION_ROUNDS.times do
-    voted_off_contestant = @merge_tribe.tribal_council
+    immunity = @borneo.individual_immunity_challenge
+    puts "#{immunity.to_s.capitalize.green} wins immunity."
+    voted_off_contestant = @merge_tribe.tribal_council({immune: immunity})
     @jury.add_member(voted_off_contestant)
     puts "#{voted_off_contestant.name.capitalize.pink} has been eliminated in tribal council and becomes a jury."
   end

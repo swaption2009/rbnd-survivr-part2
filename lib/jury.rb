@@ -27,7 +27,6 @@ class Jury
   end
 
   def report_votes(votes)
-    puts "Time to vote!"
     votes.each { |finalist, vote| puts "#{finalist.to_s.capitalize.yellow} gets #{vote.to_s.light_blue} votes" }
   end
 
